@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Congreso de Ingenieria de Sistemas Puno</title>
-    <link rel="stylesheet" href="coinsi/style.css?v=6">
+    <link rel="stylesheet" href="coinsi/style.css?v=7">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
@@ -83,34 +83,64 @@
 
     <section class="sec" id="fundadores">
         <div class="wrap">
-            <h2 class="subtitulo">Docentes Impulsores</h2>
-            <div class="fundadores-grid">
+            <h2 class="subtitulo">Fundadores</h2>
+            <div class="fundadores-layout">
 
-                <div class="tarjeta">
-                    <img src="coinsi/images/docentes/coyla.png" class="tarjeta-foto" alt="Dr. Elmer Coyla Idme">
-                    <div class="tarjeta-info">
-                        <h3>Dr. Elmer Coyla Idme</h3>
-                        <p class="tarjeta-cargo">Docente Investigador · EPIS UNAP</p>
-                        <p>Doctoris Scientiae en Ciencias de la Computación y exdirector de la EPIS - UNA Puno. Especialista en Big Data, analítica de datos e ingeniería de software orientada a la gestión institucional.</p>
+                <div class="fundadores-texto">
+                    <p>
+                        El <strong>COINSI</strong> nació del esfuerzo conjunto de <strong>docentes y estudiantes</strong> de la
+                        Escuela Profesional de Ingeniería de Sistemas de la UNAP.
+                    </p>
+                    <p>
+                        Una iniciativa académica que creció edición tras edición y hoy conecta al altiplano con el mundo.
+                    </p>
+                    <div class="fundadores-pills">
+                        <span class="pill-fundador">Docentes</span>
+                        <span class="pill-fundador">Estudiantes</span>
+                        <span class="pill-fundador">EPIS · UNAP</span>
                     </div>
                 </div>
 
-                <div class="tarjeta">
-                    <img src="coinsi/images/docentes/guina.png" class="tarjeta-foto" alt="Dra. Guina Guadalupe Sotomayor Alzamora">
-                    <div class="tarjeta-info">
-                        <h3>Dra. Guina Guadalupe Sotomayor Alzamora</h3>
-                        <p class="tarjeta-cargo">Docente Investigadora Renacyt · EPIS UNAP</p>
-                        <p>Doctora por la PUC-Rio con estancias posdoctorales en el IMPA (Brasil) y el IMCA. Especialista en Machine Learning, Visión Computacional, Computación Gráfica y Optimización.</p>
-                    </div>
-                </div>
+                <div class="carrusel-facultad" data-carrusel aria-roledescription="carrusel" aria-label="Imágenes de la Escuela Profesional de Ingeniería de Sistemas">
+                    <div class="carrusel-viewport">
+                        <div class="carrusel-track">
 
-                <div class="tarjeta">
-                    <img src="coinsi/images/docentes/feder.png" class="tarjeta-foto" alt="Dr. Pedro Feder Ponce Cordero">
-                    <div class="tarjeta-info">
-                        <h3>Dr. Pedro Feder Ponce Cordero</h3>
-                        <p class="tarjeta-cargo">Docente Investigador · EPIS UNAP</p>
-                        <p>Magíster en Informática con mención en Ingeniería de Software y Doctor en Ciencias de la Computación por la UNA Puno. Investigador en desarrollo de software, sistemas de información y tecnologías aplicadas.</p>
+                            <figure class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 6">
+                                <img src="coinsi/images/facultad/01-estudiantes.webp" alt="Estudiantes de Ingeniería de Sistemas de la UNAP con el emblema de la escuela" width="1280" height="960" loading="lazy">
+                                <figcaption>Comunidad de la EPIS UNAP</figcaption>
+                            </figure>
+
+                            <figure class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 6">
+                                <img src="coinsi/images/facultad/02-edificio-moderno.webp" alt="Moderno edificio de la Escuela Profesional de Ingeniería de Sistemas de la UNAP" width="1219" height="1200" loading="lazy">
+                                <figcaption>Edificio de Ingeniería de Sistemas</figcaption>
+                            </figure>
+
+                            <figure class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 6">
+                                <img src="coinsi/images/facultad/03-edificio-historico.webp" alt="Edificio histórico de la Escuela Profesional de Ingeniería de Sistemas" width="1280" height="715" loading="lazy">
+                                <figcaption>Nuestra primera casa de estudios</figcaption>
+                            </figure>
+
+                            <figure class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 6">
+                                <img src="coinsi/images/facultad/04-laboratorio-ia.webp" alt="Laboratorio de inteligencia artificial de la EPIS UNAP" width="1280" height="714" loading="lazy">
+                                <figcaption>Laboratorio de Inteligencia Artificial</figcaption>
+                            </figure>
+
+                            <figure class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="5 de 6">
+                                <img src="coinsi/images/facultad/05-datacenter.webp" alt="Data center de la Escuela Profesional de Ingeniería de Sistemas" width="1280" height="721" loading="lazy">
+                                <figcaption>Data Center</figcaption>
+                            </figure>
+
+                            <figure class="carrusel-slide" role="group" aria-roledescription="diapositiva" aria-label="6 de 6">
+                                <img src="coinsi/images/facultad/06-auditorio.webp" alt="Auditorio con estudiantes durante una actividad académica" width="1280" height="853" loading="lazy">
+                                <figcaption>Actividades académicas</figcaption>
+                            </figure>
+
+                        </div>
                     </div>
+
+                    <button type="button" class="carrusel-flecha carrusel-prev" aria-label="Imagen anterior">&#8249;</button>
+                    <button type="button" class="carrusel-flecha carrusel-next" aria-label="Imagen siguiente">&#8250;</button>
+                    <div class="carrusel-dots" aria-label="Seleccionar imagen"></div>
                 </div>
 
             </div>
@@ -170,7 +200,7 @@
             <p class="footer-titulo-links">Navegación</p>
             <a href="#inicio">Inicio</a>
             <a href="#nosotros">Nosotros</a>
-            <a href="#fundadores">Docentes</a>
+            <a href="#fundadores">Fundadores</a>
             <a href="#historia">Historia</a>
             <a href="coinsi2026/index.html" target="_blank" rel="noopener noreferrer">Edición 2026</a>
             <a href="coinsi2025/index.html" target="_blank" rel="noopener noreferrer">Edición 2025</a>
@@ -302,6 +332,6 @@
     </div>
 </dialog>
 
-<script src="coinsi/script.js?v=2"></script>
+<script src="coinsi/script.js?v=4"></script>
 </body>
 </html>

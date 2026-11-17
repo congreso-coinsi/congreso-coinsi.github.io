@@ -447,65 +447,196 @@ nav a:hover{
 }
 
 /* ══════════════════════════════════════════
-   FUNDADORES
+   FUNDADORES — texto breve + carrusel de la EPIS
    ══════════════════════════════════════════ */
-.fundadores{
-    padding: 40px 0;
+.fundadores-layout{
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+    gap: 40px;
+    align-items: start;
+    margin-top: 28px;
 }
 
-.fundadores-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+.fundadores-layout > *{
+    min-width: 0;
+}
+
+.fundadores-texto{
+    padding-top: 6px;
+}
+
+.fundadores-texto p{
+    color: var(--texto-suave);
+    line-height: 1.75;
+    font-size: 16px;
+    margin: 0 0 18px 0;
+}
+
+.fundadores-texto p:first-child{
+    font-size: 18px;
+    color: var(--texto);
+}
+
+.fundadores-pills{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-top: 24px;
 }
 
-.tarjeta{
+.pill-fundador{
     background: var(--fondo-tarjeta);
-    border-radius: 12px;
+    border: 1px solid var(--borde);
+    color: var(--azul);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.2px;
+}
+
+/* ── Carrusel ── */
+.carrusel-facultad{
+    position: relative;
+    border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--borde);
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--fondo-tarjeta);
+    box-shadow: 0 14px 34px rgba(0, 87, 184, 0.12);
 }
 
-.tarjeta:hover{
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 87, 184, 0.12);
+.carrusel-viewport{
+    overflow: hidden;
 }
 
-/* La foto ocupa el ancho completo de la tarjeta.
-   object-position: top muestra la cara, no el torso.
-   background-color: placeholder mientras no hay foto. */
-.tarjeta-foto{
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-    background-color: var(--borde);
+.carrusel-track{
+    display: flex;
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
 }
 
-.tarjeta-info{
-    padding: 20px;
-}
-
-.tarjeta-info h3{
-    margin: 0 0 4px 0;
-    font-size: 17px;
-}
-
-.tarjeta-info .tarjeta-cargo{
-    margin: 0 0 12px 0;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--azul);
-}
-
-.tarjeta-info p{
+.carrusel-slide{
+    flex: 0 0 100%;
+    min-width: 0;
     margin: 0;
-    font-size: 14px;
-    color: var(--texto-suave);
-    line-height: 1.6;
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: var(--borde);
+}
+
+.carrusel-slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carrusel-slide figcaption{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 46px 18px 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
+    color: #fff;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.carrusel-flecha{
+    position: absolute;
+    top: calc(50% - 24px);
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    padding: 0 0 2px 0;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--azul);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.carrusel-flecha:hover,
+.carrusel-flecha:focus-visible{
+    background: var(--azul);
+    color: #fff;
+    outline: none;
+}
+
+.carrusel-prev{ left: 12px; }
+.carrusel-next{ right: 12px; }
+
+.carrusel-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--fondo);
+    border-top: 1px solid var(--borde);
+}
+
+.carrusel-dot{
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: var(--borde);
+    cursor: pointer;
+    transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.carrusel-dot:hover{
+    background: var(--texto-muted);
+}
+
+.carrusel-dot[aria-current="true"]{
+    width: 22px;
+    background: var(--azul);
+}
+
+@media (max-width: 900px){
+    .fundadores-layout{
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .fundadores-texto p:first-child{
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 600px){
+    .carrusel-slide{
+        aspect-ratio: 4 / 3;
+    }
+
+    .carrusel-flecha{
+        width: 34px;
+        height: 34px;
+        font-size: 22px;
+    }
+
+    .carrusel-slide figcaption{
+        padding: 38px 14px 12px;
+        font-size: 12.5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .carrusel-track{
+        transition: none;
+    }
 }
 
 /* ══════════════════════════════════════════
