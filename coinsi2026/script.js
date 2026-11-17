@@ -254,4 +254,70 @@
         }
     });
 
+    /* ============================================================
+       Lightbox para ampliar los flyers de los concursos
+       ============================================================ */
+    var lightbox = document.createElement('div');
+    lightbox.className = 'flyer-lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Vista ampliada del flyer');
+    lightbox.innerHTML = '<div class="flyer-lightbox-content">' +
+        '<img class="flyer-lightbox-img" src="" alt="Flyer ampliado">' +
+        '<button type="button" class="flyer-lightbox-close" aria-label="Cerrar vista ampliada">&times;</button>' +
+        '</div>';
+    document.body.appendChild(lightbox);
+
+    var lightboxImg = lightbox.querySelector('.flyer-lightbox-img');
+    var lightboxClose = lightbox.querySelector('.flyer-lightbox-close');
+
+    function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || 'Flyer ampliado';
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+        setTimeout(function () {
+            if (!lightbox.classList.contains('is-open')) {
+                lightboxImg.src = '';
+            }
+        }, 250);
+    }
+
+    document.querySelectorAll('.event-flyer').forEach(function (figure) {
+        var img = figure.querySelector('.flyer-img');
+        if (!img) return;
+
+        figure.setAttribute('tabindex', '0');
+        figure.setAttribute('role', 'button');
+        figure.setAttribute('aria-label', 'Ampliar ' + (img.alt || 'flyer'));
+
+        figure.addEventListener('click', function () {
+            openLightbox(img.src, img.alt);
+        });
+
+        figure.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox(img.src, img.alt);
+            }
+        });
+    });
+
+    lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox || e.target === lightboxClose) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+            closeLightbox();
+        }
+    });
+
 })();

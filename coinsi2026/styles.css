@@ -650,12 +650,13 @@ section[id] {
 
 .countdown {
     padding: 28px;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-top: 4px solid var(--azul);
     border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
 }
 
 .countdown-head {
@@ -1486,12 +1487,118 @@ section[id] {
     aspect-ratio: 3 / 4;
     background: linear-gradient(160deg, #0f172a 0%, #1d4ed8 100%);
     border-radius: 10px;
+    cursor: zoom-in;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-flyer:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.event-flyer::after {
+    content: '🔍 Clic para ampliar';
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #ffffff;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.event-flyer:hover::after {
+    opacity: 1;
 }
 
 .event-flyer img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+}
+
+/* Lightbox Modal para Flyers */
+.flyer-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    padding: 20px;
+    cursor: zoom-out;
+}
+
+.flyer-lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.flyer-lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.92);
+    transition: transform 0.25s ease;
+    cursor: default;
+}
+
+.flyer-lightbox.is-open .flyer-lightbox-content {
+    transform: scale(1);
+}
+
+.flyer-lightbox-img {
+    max-width: 100%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+    background: #0f172a;
+}
+
+.flyer-lightbox-close {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #0f172a;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.flyer-lightbox-close:hover {
+    background: #e11d48;
+    transform: scale(1.1);
 }
 
 .event-flyer.is-missing img {
