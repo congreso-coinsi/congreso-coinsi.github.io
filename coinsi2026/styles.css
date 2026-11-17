@@ -1069,8 +1069,141 @@ section[id] {
     color: var(--text);
 }
 
+.speaker-affiliation {
+    margin: 0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--muted);
+}
+
+/* Fila de banderas, logos institucionales y redes */
+/* Anclada al pie de la tarjeta: todas las filas quedan a la misma altura */
+.speaker-meta {
+    order: 10;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 48px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+}
+
+.speaker-origin {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.speaker-flags {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.speaker-flags img {
+    width: 21px;
+    height: 14px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.12);
+}
+
+.speaker-logos {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 5px;
+}
+
+.speaker-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    padding: 4px 7px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+
+.speaker-logo img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 78px;
+    max-height: 26px;
+    object-fit: contain;
+}
+
+.speaker-logo--text {
+    padding: 0 8px;
+    background: #ecfdf5;
+    border-color: #a7f3d0;
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #0f766e;
+}
+
+.speaker-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 11px;
+    background: #0a66c2;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(10, 102, 194, 0.25);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.speaker-social:hover {
+    background: #084d92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(10, 102, 194, 0.32);
+}
+
+.speaker-social:focus-visible {
+    outline: 3px solid rgba(10, 102, 194, 0.35);
+    outline-offset: 2px;
+}
+
+.speaker-social {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.speaker-social svg {
+    flex-shrink: 0;
+}
+
+.speaker-social--academic {
+    background: #0f766e;
+    box-shadow: 0 3px 10px rgba(15, 118, 110, 0.25);
+}
+
+.speaker-social--academic:hover {
+    background: #115e59;
+    box-shadow: 0 6px 14px rgba(15, 118, 110, 0.32);
+}
+
+.speaker-social--academic:focus-visible {
+    outline-color: rgba(15, 118, 110, 0.35);
+}
+
 .speaker-topic {
-    margin-top: 8px;
+    margin: 4px 0 14px;
     font-size: 0.92rem;
     line-height: 1.5;
     color: #1e293b;
