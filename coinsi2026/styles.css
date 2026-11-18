@@ -933,6 +933,14 @@ section[id] {
     color: var(--text);
 }
 
+.fact-map iframe {
+    display: block;
+    width: 100%;
+    height: 260px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
 .pillars {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1078,7 +1086,7 @@ section[id] {
     color: var(--muted);
 }
 
-/* Fila de banderas, logos institucionales y redes */
+/* Fila de logos institucionales y redes */
 /* Anclada al pie de la tarjeta: todas las filas quedan a la misma altura */
 .speaker-meta {
     order: 10;
@@ -1099,20 +1107,6 @@ section[id] {
     align-items: center;
     gap: 8px;
     min-width: 0;
-}
-
-.speaker-flags {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-}
-
-.speaker-flags img {
-    width: 21px;
-    height: 14px;
-    object-fit: cover;
-    border-radius: 2px;
-    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.12);
 }
 
 .speaker-logos {
@@ -1169,6 +1163,13 @@ section[id] {
     transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.speaker-social--icon {
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+}
+
 .speaker-social:hover {
     background: #084d92;
     transform: translateY(-1px);
@@ -1216,6 +1217,75 @@ section[id] {
 
 /* ---------- Programa y Cronograma (Estilo COINSI 2025) ---------- */
 
+/* ---------- Programa y Cronograma (Estilo institucional COINSI) ---------- */
+
+.programa-header-pro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+}
+
+.programa-badge-top {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--azul);
+    background: var(--azul-soft);
+    border: 1px solid var(--azul-border);
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+}
+
+.programa-header-info h2 {
+    color: var(--ink);
+    font-size: 2.2rem;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.02em;
+}
+
+.programa-subtitle {
+    color: var(--muted);
+    margin: 0;
+    font-size: 0.98rem;
+    max-width: 680px;
+}
+
+.programa-subtitle em {
+    color: var(--azul);
+    font-style: normal;
+    font-weight: 600;
+}
+
+.btn-pdf-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--azul);
+    color: #ffffff;
+    padding: 11px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 87, 184, 0.25);
+    transition: all 0.2s ease;
+}
+
+.btn-pdf-download:hover {
+    background: var(--azul-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 87, 184, 0.35);
+    color: #ffffff;
+}
+
 .tab-buttons-coinsi {
     display: flex;
     justify-content: flex-start;
@@ -1225,7 +1295,10 @@ section[id] {
 }
 
 .tab-btn-coinsi {
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
     background: #ffffff;
     border: 1px solid var(--line);
     color: var(--text);
@@ -1237,11 +1310,36 @@ section[id] {
     transition: all 0.2s ease;
 }
 
-.tab-btn-coinsi.is-active,
+.tab-btn-coinsi .tab-day {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--azul);
+}
+
+.tab-btn-coinsi .tab-type {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 500;
+}
+
 .tab-btn-coinsi:hover {
-    background: #0f172a;
-    color: #ffffff;
+    background: #f8fafc;
     border-color: #0f172a;
+    color: #0f172a;
+}
+
+.tab-btn-coinsi.is-active {
+    background: #0f172a;
+    border-color: #0f172a;
+    color: #ffffff;
+}
+
+.tab-btn-coinsi.is-active .tab-day {
+    color: #ffffff;
+}
+
+.tab-btn-coinsi.is-active .tab-type {
+    color: #94a3b8;
 }
 
 .cronograma-pane {
@@ -1252,65 +1350,165 @@ section[id] {
     display: block;
 }
 
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-}
-
-.cronograma-table {
-    width: 100%;
-    border-collapse: collapse;
+/* Banner de día exactamente como los encabezados del PDF */
+.schedule-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
     background: #ffffff;
     border: 1px solid var(--line);
+    border-left: 5px solid var(--azul);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    flex-wrap: wrap;
+}
+
+.schedule-banner-date .banner-kicker {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--azul);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.schedule-banner-date .banner-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 4px 0;
+    letter-spacing: 0.01em;
+}
+
+.schedule-banner-date .banner-subtitle {
     font-size: 0.92rem;
+    color: var(--muted);
+    margin: 0;
+    font-style: italic;
 }
 
-.cronograma-table th,
-.cronograma-table td {
-    padding: 12px 16px;
-    text-align: left;
-    border-bottom: 1px solid var(--line);
-    vertical-align: middle;
-}
-
-.cronograma-table th {
-    background: #0f172a;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
-}
-
-.cronograma-table tbody tr:hover {
-    background: #f8fafc;
-}
-
-.cronograma-table td:first-child {
+.badge-jornada {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 4px;
     font-family: var(--font-display);
     font-weight: 700;
-    color: var(--azul);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     white-space: nowrap;
 }
 
-.cronograma-table .highlight-row {
-    background: #f1f5f9;
-    font-weight: 600;
-    color: #0f172a;
+.badge-jornada--presencial {
+    background: #0f172a;
+    color: #ffffff;
 }
 
-.cronograma-table .block-header td {
-    background: #e2e8f0;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.badge-jornada--virtual {
+    background: var(--azul);
+    color: #ffffff;
+}
+
+/* Grilla de tarjetas del programa tal como el PDF */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 860px) {
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.program-card {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.program-card:hover {
+    border-color: var(--line-strong);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.program-time {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--bone);
+    color: var(--azul);
+    font-family: var(--font-display);
+    font-weight: 700;
     font-size: 0.85rem;
-    color: #0f172a;
-    text-align: center;
-    padding: 10px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid var(--line);
+}
+
+.program-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+}
+
+.program-speaker {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.35;
+}
+
+.program-topic {
+    font-size: 0.9rem;
+    color: var(--text-lead);
+    margin: 0;
+    line-height: 1.45;
+}
+
+.program-affil {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 4px 0 0 0;
+    font-weight: 500;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+}
+
+/* Variante especial para BREAK */
+.program-card--break {
+    background: #f8fafc;
+    border-left: 4px solid #f59e0b;
+}
+
+.program-card--break .program-speaker {
+    color: #b45309;
+}
+
+/* Variante para actividades solemnes o eventos de clausura/concursos */
+.program-card--special {
+    background: #f8fafc;
+    border-left: 4px solid var(--azul);
+}
+
+.program-card--special .program-speaker {
+    color: var(--ink);
 }
 
 .callout {
