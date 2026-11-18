@@ -618,6 +618,140 @@ section[id] {
     transform: translateY(-2px);
 }
 
+/* Botón interactivo WhatsApp en la portada */
+.btn-hero-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.22) 0%, rgba(18, 140, 126, 0.32) 100%);
+    border: 1.5px solid #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 18px 8px 12px;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.28);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.btn-hero-whatsapp:hover {
+    background: #25d366;
+    color: #ffffff;
+    border-color: #25d366;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
+}
+
+.btn-hero-whatsapp:hover .whatsapp-tag {
+    color: #064e3b;
+}
+
+.btn-hero-whatsapp:hover .whatsapp-text {
+    color: #ffffff;
+}
+
+.whatsapp-icon-wrap {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    background: #25d366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Destello / parpadeo rápido cada cierto tiempo (ciclo de 4 segundos con ráfaga rápida) */
+.whatsapp-icon-wrap svg {
+    animation: wa-quick-flash 4s infinite cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: center;
+}
+
+.whatsapp-ping-ring {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid #25d366;
+    animation: wa-ring-burst 4s infinite cubic-bezier(0, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+@keyframes wa-quick-flash {
+    0%, 70%, 100% {
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 0 transparent);
+    }
+    74% {
+        transform: scale(1.22) rotate(-12deg);
+        filter: drop-shadow(0 0 6px #ffffff);
+    }
+    78% {
+        transform: scale(0.95) rotate(12deg);
+    }
+    82% {
+        transform: scale(1.2) rotate(-8deg);
+        filter: drop-shadow(0 0 8px #ffffff);
+    }
+    86% {
+        transform: scale(0.98) rotate(4deg);
+    }
+    90% {
+        transform: scale(1.15) rotate(0deg);
+        filter: drop-shadow(0 0 5px #ffffff);
+    }
+    94% {
+        transform: scale(1);
+    }
+}
+
+@keyframes wa-ring-burst {
+    0%, 70% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    73% {
+        opacity: 0.9;
+    }
+    85% {
+        opacity: 0;
+        transform: scale(1.6);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.6);
+    }
+}
+
+.whatsapp-label-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.whatsapp-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #86efac;
+    transition: color 0.2s ease;
+}
+
+.whatsapp-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease;
+}
+
 .hero-meta {
     display: flex;
     flex-wrap: wrap;
