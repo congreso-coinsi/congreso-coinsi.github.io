@@ -2601,12 +2601,43 @@ dialog.legal-modal::backdrop {
     }
 
     .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 24px;
     }
 
     .hero-actions .btn {
-        width: 100%;
+        width: auto;
+        padding: 10px 14px;
+        font-size: 0.88rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-actions .btn-hero-whatsapp {
+        grid-column: span 2;
+        justify-content: center;
+        padding: 7px 16px;
+        margin-top: 2px;
+    }
+
+    .hero-actions .whatsapp-icon-wrap {
+        width: 30px;
+        height: 30px;
+    }
+
+    .hero-actions .whatsapp-icon-wrap svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .hero-actions .whatsapp-tag {
+        font-size: 0.62rem;
+    }
+
+    .hero-actions .whatsapp-text {
+        font-size: 0.84rem;
     }
 
     .hero-meta {
